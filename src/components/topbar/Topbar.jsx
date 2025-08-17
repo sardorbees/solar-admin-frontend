@@ -53,14 +53,14 @@ function Topbar() {
                             <a href="tel:+998951481212" className="header-button call-button">
                                 <img src={call} alt="" width={20} />
                                 <span className="button-text">
-                                    <Translator tKey="salom bro" />
+                                    {lang === 'uz' ? "QO'NG'IROQ" : "ПOЗВОНИТЬ"}
                                 </span>
                             </a>
 
                             <a href="/contact" className="header-buttonn order-button">
                                 <img src={data} alt="" width={20} />
                                 <span className="button-text">
-                                    <Translator tKey="sotib olish" />
+                                    {lang === 'uz' ? "MUROJAAT YUBORING" : "ОФОРМИТЬ ЗАЯВКУ"}
                                 </span>
                             </a>
                         </div>

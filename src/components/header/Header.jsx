@@ -46,17 +46,17 @@ function Header() {
                             <ul className="navbar-nav mr-auto" id="menu">
                                 <li className="nav-item">
                                     <a className="nav-link" href="/catalog">
-                                        {translations.catalog || 'Каталог'}
+                                        {lang === 'uz' ? "Katalog" : "Каталог"}
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="/services">
-                                        {translations.Услуги || 'Услуги'}
+                                        {lang === 'uz' ? "Xizmatlar" : "Услуги"}
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="/video-type">
-                                        {translations.Проекты || 'Проекты'}
+                                        {lang === 'uz' ? "Loyihalar" : "Проекты"}
                                     </a>
                                 </li>
                             </ul>

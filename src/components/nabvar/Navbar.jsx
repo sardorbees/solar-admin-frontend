@@ -30,7 +30,7 @@ export default function Navbar() {
 
     return (
         <nav style={{ marginTop: "0px" }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+            <div className="fffa">
                 {user ? (
                     <Link to="/profile" style={{ display: "flex", alignItems: "center", gap: '8px' }}>
                         {user.image && (
@@ -46,8 +46,8 @@ export default function Navbar() {
                     </Link>
                 ) : (
                     <>
-                        <Link to="/register" className="nav-link"><Translator tKey="register" /></Link> |{" "}
-                        <Link to="/login" className="nav-link"><Translator tKey="login" /></Link>
+                        <Link to="/register" className="nav-link">{lang === 'uz' ? "Roʻyxatdan oʻtish" : "Зарегистрироваться"}</Link> |{" "}
+                        <Link to="/login" className="nav-link">{lang === 'uz' ? "Tizimga kirish" : "Войти"}</Link>
                     </>
                 )}
             </div>

@@ -22,8 +22,8 @@ function CustomModal() {
 
     return (
         <>
-            <Button onClick={handleShow} style={{fontSize: '16px', color: 'black'}}>
-                <Translator tKey="yuz 100" />
+            <Button onClick={handleShow} style={{ fontSize: '16px', color: 'black' }}>
+                {lang === 'uz' ? "Yuridik shaxs sifatida sotib oling" : "Купить как юр.лицо"}
             </Button>
 
             <Modal show={show} onHide={handleClose}>

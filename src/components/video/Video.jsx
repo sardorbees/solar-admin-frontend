@@ -60,10 +60,10 @@ function Video() {
                 <div className="hero-layout2-box text-white">
                     <div className="section-title mb-4">
                         <h1 className="text-anime">
-                            <Translator tKey="Enerji Project" />
+                            {lang === 'uz' ? "Enerji Project" : "Enerji Project"}
                         </h1>
                         <h3>
-                            <Translator tKey="Consulting Engineering" />
+                            {lang === 'uz' ? "Konsalting muhandisligi" : "Consulting Engineering"}
                         </h3>
                     </div>
 
@@ -72,7 +72,7 @@ function Video() {
                             <p className="text-danger">{error}</p>
                         ) : (
                             <p>
-                                <Translator tKey="edo" />
+                                {lang === 'uz' ? "Qulaylik, xavfsizlik va samaradorlik hammasi bir joyda" : "Удобства и Безопасность и Эффективность все одном месте"}
                             </p>
                         )}
                     </div>
