@@ -1,0 +1,200 @@
+/* Плавный выезд и появление Offcanvas */
+.custom-offcanvas .offcanvas {
+    transform: translateX(100%);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+    background: linear-gradient(to right, #2c3e50, #3498db);
+    /* градиентный фон */
+    color: white;
+    padding: 20px;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Когда Offcanvas активен — возвращаем на экран */
+.custom-offcanvas .offcanvas.show {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Заголовок */
+.custom-offcanvas .offcanvas-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Заголовок текста */
+.custom-offcanvas .offcanvas-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* Основной текст */
+.custom-offcanvas .offcanvas-body {
+    font-size: 1.1rem;
+    margin-top: 20px;
+    line-height: 1.6;
+}
+
+.btn-primary {
+    background: none !important;
+    border: none;
+    outline: none;
+}
+
+.btn:hover {
+    color: var(--bs-btn-hover-color);
+    background-color: none !important;
+    border-color: none;
+}
+
+.ffhgf {
+    width: 200px;
+    text-align: start;
+    margin-top: 15px;
+}
+
+.ffh {
+    display: flex;
+    flex-wrap: wrap;
+    column-gap: 25px;
+    flex-direction: column;
+}
+
+.sdgiu {
+    color: black;
+    position: relative;
+    top: 30px;
+}
+
+@media only screen and (max-width: 767px) {
+    .header-social-links {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    header.main-header {
+        margin-bottom: 25px;
+    }
+
+    .hero-layout2 {
+        position: relative;
+        /* background: url(../img/banner/hero.jpg) no-repeat top center; */
+        background-size: cover;
+        padding: 310px 0 140px;
+        margin-top: -323px;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-width: 342px) and (max-width: 437px) {
+    .section-title h3 {
+        display: inline-block;
+        text-align: center;
+        font-size: 14px;
+        text-transform: uppercase;
+        font-weight: 600;
+        letter-spacing: 2px;
+        color: var(--accent-color);
+        position: relative;
+        padding-left: 20px;
+        margin-bottom: 10px;
+        z-index: 2;
+        padding-top: 25px;
+    }
+
+    .header-social-links {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+
+    .hero-layout2 {
+        position: relative;
+        /* background: url(../img/banner/hero.jpg) no-repeat top center; */
+        background-size: cover;
+        padding: 310px 0 140px;
+        margin-top: -380px;
+        overflow: hidden;
+    }
+
+    .header-buttone {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0px 15px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid transparent;
+        width: 220px;
+        white-space: nowrap;
+        font-size: 12px;
+        column-gap: 10px;
+        margin-top: 15px;
+        margin-bottom: 15px;
+    }
+
+    .header-buttonn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 7px 15px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 1px solid var(--accent-color);
+        width: 200px;
+        white-space: nowrap;
+        font-size: 14px;
+        column-gap: 15px;
+        position: relative;
+        top: 15px;
+    }
+
+    header.main-header {
+        margin-bottom: 25px;
+    }
+}
+
+.fffa {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    margin: 0 auto;
+}
+
+.gfgffg {
+    display: flex;
+}
+
+.header-buttone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 15px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    width: 280px;
+    white-space: nowrap;
+    font-size: 14px;
+    column-gap: 10px;
+    margin-top: 1px;
+    color: black;
+}

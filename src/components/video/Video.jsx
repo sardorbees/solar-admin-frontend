@@ -1,0 +1,85 @@
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
+import { Translator, useLang } from '../translator/Translator';
+import FloatingButtons from '../floatingbuttons/FloatingButtons'
+
+function Video() {
+    const [videoUrl, setVideoUrl] = useState(null);
+    const [error, setError] = useState(null);
+    const { lang, setLang } = useLang(); // текущий язык и функция смены языка
+
+    useEffect(() => {
+        const fetchVideo = async () => {
+            try {
+                const response = await axios.get('https://django-admin-pro.onrender.com/api/banner_video/banner-videos/');
+                if (response.data.length > 0) {
+                    const latestVideo = response.data[0];
+                    setVideoUrl(latestVideo.video);
+                }
+            } catch (err) {
+                console.error('Ошибка при загрузке видео:', err);
+                setError('video_error');
+            }
+        };
+
+        fetchVideo();
+        const interval = setInterval(fetchVideo, 1000);
+
+        return () => clearInterval(interval);
+    }, []);
+
+    return (
+        <div
+            className="hero-layout2 hero-video"
+            style={{ position: 'relative', overflow: 'hidden', height: '100vh' }}
+        >
+            <FloatingButtons />
+            {videoUrl && (
+                <video
+                    key={videoUrl} // перезапустит проигрывание при обновлении URL
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        zIndex: -1,
+                    }}
+                >
+                    <source src={videoUrl} type="video/mp4" />
+                    Ваш браузер не поддерживает видео.
+                </video>
+            )}
+
+            <div className="container h-100 d-flex align-items-center justify-content-center text-center">
+                <div className="hero-layout2-box text-white">
+                    <div className="section-title mb-4">
+                        <h1 className="text-anime">
+                            <Translator tKey="Enerji Project" />
+                        </h1>
+                        <h3>
+                            <Translator tKey="Consulting Engineering" />
+                        </h3>
+                    </div>
+
+                    <div className="hero-content">
+                        {error ? (
+                            <p className="text-danger">{error}</p>
+                        ) : (
+                            <p>
+                                <Translator tKey="edo" />
+                            </p>
+                        )}
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
+
+export default Video;

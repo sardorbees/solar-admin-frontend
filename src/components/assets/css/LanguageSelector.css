@@ -1,0 +1,64 @@
+.language-selector {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+}
+
+.language-selector li {
+    margin: 0;
+}
+
+.language-selector button {
+    padding: 5px 5px;
+    font-size: 14px;
+    font-weight: 500;
+    background-color: unset;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: unset;
+    border-radius: 50%;
+}
+
+.language-selector button:hover {
+    background-color: unset;
+    border-color: unset;
+}
+
+.language-selector button.active {
+    background-color: unset;
+    color: unset;
+    border-color: unset;
+    border-radius: 50%;
+}
+
+.language-selector {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+}
+
+.language-selector li button {
+    position: relative;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.language-selector li button .checkmark {
+    position: absolute;
+    bottom: 11px;
+    right: 12px;
+    font-size: 26px;
+    color: var(--accent-color);
+    font-weight: bold;
+}
+
+.language-selector li button.active {
+    border-radius: 8px;
+}

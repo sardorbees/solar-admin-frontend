@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="../src/components/assets/img/logo/Лого.png" />
+  <meta name="csrf-token" content="{{ csrf_token }}">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="Web site created using create-react-app" />
+  <link rel="apple-touch-icon" href="../src/components/assets/img/logo/Лого.png" />
+  <link rel="manifest" href="../src/components/assets/img/logo/Лого.png" />
+  <title>Enerji Project</title>
+</head>
+
+<body>
+  <noscript>Добро Пожаловать Enerji Project!</noscript>
+  <div id="root"></div>
+  <script>
+    const form = document.getElementById("contactForm");
+    const messageBox = document.getElementById("statusMessage");
+    const submitBtn = document.getElementById("submitBtn");
+    const retryBtn = document.getElementById("retryBtn");
+
+    let blockUntil = localStorage.getItem("block_until");
+
+    // Проверка блокировки при загрузке
+    if (blockUntil && Date.now() < parseInt(blockUntil)) {
+      startCountdown(parseInt(blockUntil));
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      messageBox.textContent = "";
+
+      if (Date.now() < parseInt(localStorage.getItem("block_until") || 0)) {
+        return;
+      }
+
+      submitBtn.disabled = true;
+
+      const formData = new FormData(form);
+      const jsonData = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/applicationapplications/", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(jsonData),
+        });
+
+        const data = await res.json();
+
+        if (res.ok) {
+          messageBox.textContent = "✅ Заявка успешно отправлена!";
+          form.reset();
+          const oneHourLater = Date.now() + 60 * 60 * 1000;
+          localStorage.setItem("block_until", oneHourLater);
+          startCountdown(oneHourLater);
+        } else if (res.status === 429) {
+          const detail = data.detail || "Вы уже отправляли заявку. Повторите через 1 час.";
+          messageBox.textContent = "❌ " + detail;
+
+          const match = detail.match(/(\d+)/);
+          if (match) {
+            const minutes = parseInt(match[1], 10);
+            const until = Date.now() + minutes * 60 * 1000;
+            localStorage.setItem("block_until", until);
+            startCountdown(until);
+          }
+        } else {
+          messageBox.textContent = "⚠️ Ошибка отправки формы.";
+        }
+      } catch (err) {
+        console.error(err);
+        messageBox.textContent = "⚠️ Ошибка соединения.";
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+
+    retryBtn.addEventListener("click", async () => {
+      // Проверим, доступна ли разблокировка
+      const blockUntil = parseInt(localStorage.getItem("block_until") || 0);
+      if (Date.now() < blockUntil) {
+        messageBox.textContent = "⏳ Пожалуйста, дождитесь окончания времени.";
+        return;
+      }
+
+      try {
+        const res = await fetch("http://127.0.0.1:8000/api/unlock-ip/");
+        const data = await res.json();
+        messageBox.textContent = data.detail || "Разблокировано.";
+        localStorage.removeItem("block_until");
+        retryBtn.style.display = "none";
+        retryBtn.disabled = true;
+        submitBtn.disabled = false;
+      } catch (e) {
+        messageBox.textContent = "❌ Не удалось разблокировать.";
+      }
+    });
+
+    function startCountdown(untilTimestamp) {
+      retryBtn.style.display = "inline-block";
+      retryBtn.disabled = true; // по умолчанию кнопка недоступна
+      submitBtn.disabled = true;
+
+      const interval = setInterval(() => {
+        const now = Date.now();
+        const diff = untilTimestamp - now;
+
+        if (diff <= 0) {
+          clearInterval(interval);
+          localStorage.removeItem("block_until");
+          messageBox.textContent = "🟢 Вы можете повторить отправку.";
+          retryBtn.disabled = false; // разрешаем нажимать
+          submitBtn.disabled = false;
+          return;
+        }
+
+        const min = Math.floor(diff / 60000);
+        const sec = Math.floor((diff % 60000) / 1000);
+        messageBox.textContent = `⏳ Повторите через ${min} мин ${sec} сек`;
+      }, 1000);
+    }
+  </script>
+  <!-- <script>
+    function sendForm(token) {
+      const formData = {
+        full_name: document.querySelector('[name="full_name"]').value,
+        phone: document.querySelector('[name="phone"]').value,
+        address: document.querySelector('[name="address"]').value,
+        description: document.querySelector('[name="description"]').value,
+        recaptcha_token: token,
+      };
+
+      fetch("http://127.0.0.1:8000/api/applicationapplications/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      })
+        .then(res => res.json())
+        .then(data => {
+          alert("Успешно отправлено");
+        })
+        .catch(err => {
+          alert("Ошибка");
+        });
+    }
+
+  </script>
+  <script>
+    fetch('http://localhost:8000/swagger/')
+      .then(res => {
+        if (!res.ok) throw new Error("Закрыто");
+        return res.text();
+      })
+      .then(console.log)
+      .catch(err => console.error("Недоступно:", err));
+  </script>
+  <script>
+    // ✅ Чистый JavaScript без ошибок, API и Swagger
+    function showTime() {
+      const now = new Date();
+      const formatted = now.toLocaleTimeString();
+      document.getElementById('output').innerText = "Текущее время: " + formatted;
+    }
+  </script>
+  <script>
+    (function () {
+      // Запрет клавиш F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+      document.addEventListener('keydown', function (e) {
+        if (
+          e.key === 'F12' ||
+          (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J')) ||
+          (e.ctrlKey && e.key === 'U')
+        ) {
+          e.preventDefault();
+          alert('Консоль закрыто');
+          return false;
+        }
+      });
+
+      // Запрет правого клика
+      document.addEventListener('contextmenu', function (e) {
+        e.preventDefault();
+        alert('Правый клик запрещён');
+      });
+
+      // Попытка обнаружить открытие DevTools
+      var devtools = { open: false };
+      var threshold = 160;
+
+      setInterval(function () {
+        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        if (widthThreshold || heightThreshold) {
+          if (!devtools.open) {
+            devtools.open = true;
+            alert('Пожалуйста, не открывайте консоль разработчика!');
+            // Можно сделать перенаправление или закрытие страницы
+            // window.location.href = 'about:blank';
+            // window.close();
+          }
+        } else {
+          devtools.open = false;
+        }
+      }, 1000);
+
+    })();
+  </script>
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    document.addEventListener('keydown', event => {
+      if (event.key === "F12" || (event.ctrlKey && event.shiftKey && event.key === "I")) {
+        event.preventDefault();
+      }
+    });
+    function greet(name) {
+      console.log("Hello, " + name + "!");
+    }
+    setInterval(() => {
+      if (window.outerWidth - window.innerWidth > 100 || window.outerHeight - window.innerHeight > 100) {
+        window.close(); // или перенаправление
+      }
+    }, 1000);
+    greet("User");
+    var _0x1a2b = ["\x48\x65\x6C\x6C\x6F\x2C\x20", "\x21"]; function greet(_0x1a3b) { console["\x6C\x6F\x67"](_0x1a2b[0] + _0x1a3b + _0x1a2b[1]) } greet("\x55\x73\x65\x72");
+  </script> -->
+</body>
+
+</html>

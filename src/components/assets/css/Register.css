@@ -1,0 +1,124 @@
+/* Register.css */
+
+form {
+    max-width: 100%;
+    margin: 50px auto;
+    padding: 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #222;
+}
+
+form img {
+    display: block;
+    margin: 0 auto 30px;
+    max-width: 300px;
+}
+
+/* ✅ Все input зелёные */
+input[type="name"],
+input[type="email"],
+input[type="password"],
+input[type="file"],
+input[type="phone"],
+input[type="tel"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 18px;
+    border: 2px solid #0b7a0b;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    color: #0b7a0b;
+    background-color: #eaffea;
+}
+
+/* ✅ Плейсхолдеры тоже зелёные */
+input::placeholder {
+    color: #0b7a0b;
+}
+
+input:focus {
+    border-color: #028a02;
+    box-shadow: 0 0 6px #0b7a0b66;
+    background-color: #eaffea;
+}
+
+.password-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+}
+
+.password-container input {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+.theme-togglee {
+    background: #0b7a0b;
+    border: none;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 18px;
+    margin-left: 8px;
+    transition: background 0.3s ease;
+}
+
+.theme-togglee:hover {
+    background: #065e06;
+}
+
+input[type="file"] {
+    padding: 8px 10px;
+    border: 2px dashed #0b7a0b;
+    background-color: #eaffea;
+    cursor: pointer;
+    color: #0b7a0b;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    background: #0b7a0b;
+    color: white;
+    border: none;
+    padding: 8px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+input[type="file"]::-webkit-file-upload-button:hover {
+    background: #065e06;
+}
+
+button[type="submit"] {
+    width: 100%;
+    background-color: #0b7a0b;
+    color: #fff;
+    padding: 14px;
+    font-size: 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+}
+
+button[type="submit"]:hover {
+    background-color: #065e06;
+}
+
+@media (max-width: 480px) {
+    form {
+        padding: 20px;
+    }
+
+    .theme-togglee {
+        padding: 8px 10px;
+        font-size: 16px;
+    }
+}
