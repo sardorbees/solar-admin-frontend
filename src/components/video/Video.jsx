@@ -16,13 +16,16 @@ function Video() {
                 const response = await axios.get('https://django-admin-pro.onrender.com/api/banner_video/banner-videos/');
                 if (response.data.length > 0) {
                     const latestVideo = response.data[0];
-                    setVideoUrl(latestVideo.video);
+                    if (latestVideo.video !== videoUrl) {
+                        setVideoUrl(latestVideo.video); // обновляем только если видео изменилось
+                    }
                 }
             } catch (err) {
                 console.error('Ошибка при загрузке видео:', err);
                 setError('video_error');
             }
         };
+
 
         fetchVideo();
         const interval = setInterval(fetchVideo, 1000);
