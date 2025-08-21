@@ -9,6 +9,8 @@ import '../assets/css/custom.css';
 import '../assets/css/magnific-popup.css';
 import '../assets/css/slicknav.min.css';
 import '../assets/css/swiper-bundle.min.css';
+import WOW from 'wowjs';
+import 'animate.css';
 
 function Services() {
     const [services, setServices] = useState([]);
@@ -48,7 +50,7 @@ function Services() {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', marginTop: '35px' }}>
+            <h1 style={{ textAlign: 'center', marginTop: '35px' }} className='wow fadeInUp'>
                 {lang === 'uz' ? "Bizning Ishlarimiz" : "Нашы Работы"}
             </h1>
 

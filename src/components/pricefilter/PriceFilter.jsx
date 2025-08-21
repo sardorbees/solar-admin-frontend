@@ -7,11 +7,12 @@ import { Translator, useLang } from '../translator/Translator';
 const PriceFilter = ({ translations }) => {
     const [rangeMin, setRangeMin] = useState(0);
     const [rangeMax, setRangeMax] = useState(7000000);
+    const { lang } = useLang();
 
     return (
         <div className="filter-group">
             <h3 className="filter-title">
-                <Translator tKey="price" translations={translations} />
+                {lang === 'uz' ? "Narx (so`m)" : "Цена (сум)"}
             </h3>
 
             <Slider

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../assets/css/LaptopList.css";
 import { Translator, useLang } from "../translator/Translator";
+import WOW from "wowjs";
+import "animate.css";
 
 const LaptopList = () => {
     const [laptops, setLaptops] = useState([]);
@@ -35,17 +37,22 @@ const LaptopList = () => {
         }
     };
 
+    // WOW.js инициализация
+    useEffect(() => {
+        new WOW.WOW({ live: false }).init();
+    }, []);
+
     // Автообновление списка ноутбуков
     useEffect(() => {
         fetchLaptops();
-        const interval = setInterval(fetchLaptops, 5000); // обновляем каждые 5 секунд
+        const interval = setInterval(fetchLaptops, 5000);
         return () => clearInterval(interval);
     }, []);
 
-    // Автообновление переводов при смене языка
+    // Обновление переводов при смене языка
     useEffect(() => {
         fetchTranslations();
-        const interval = setInterval(fetchTranslations, 5000); // обновляем каждые 5 секунд
+        const interval = setInterval(fetchTranslations, 5000);
         return () => clearInterval(interval);
     }, [lang]);
 
@@ -57,16 +64,17 @@ const LaptopList = () => {
 
     return (
         <div>
-            <h1 className="gfdgd">
-                {lang === 'uz' ? "Ommabop kategoriya" : "Популярный Категория"}
+            <h1
+                style={{ textAlign: "center", marginTop: "35px" }}
+                className="wow fadeInDown"
+                data-wow-duration="1s"
+            >
+                {lang === "uz" ? "Ommabop kategoriya" : "Популярный Категория"}
             </h1>
 
             <div className="laptop-grid">
-                {laptops.map((laptop) => {
-                    // Название на текущем языке
+                {laptops.map((laptop, index) => {
                     const laptopName = laptop[`name_${lang}`] || laptop.name_ru;
-
-                    // Префикс "Brand" / "Бранд" / "Brend"
                     const brandLabel =
                         translations["brand_label"] || (lang === "uz" ? "Brend" : "Бранд");
 
@@ -74,7 +82,9 @@ const LaptopList = () => {
                         <a
                             href={`/${laptop.slug}/`}
                             key={laptop.id}
-                            className="laptop-card"
+                            className="laptop-card wow fadeInUp"
+                            data-wow-delay={`${index * 0.1}s`}
+                            data-wow-duration="0.8s"
                         >
                             <img
                                 src={laptop.img}

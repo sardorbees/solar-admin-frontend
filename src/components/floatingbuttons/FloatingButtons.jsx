@@ -1,9 +1,6 @@
-// FloatingMenu.jsx
 import React, { useState } from "react";
 import { FaInstagram, FaTelegramPlane, FaTimes, FaCommentDots } from "react-icons/fa";
 import { useLang } from "../translator/Translator";
-import ru from '../assets/img/icon/russia.png';
-import uz from '../assets/img/icon/uzbekistan.png';
 import "../assets/css/FloatingButtons.css";
 
 const FloatingButtons = () => {

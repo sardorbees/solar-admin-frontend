@@ -139,6 +139,10 @@
 }
 
 @media only screen and (min-width: 1000px) and (max-width: 1050px) {
+    .header-button {
+        width: 55%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -169,6 +173,10 @@
 }
 
 @media only screen and (min-width: 950px) and (max-width: 1000px) {
+    .header-button {
+        width: 22%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -208,6 +216,10 @@
 }
 
 @media only screen and (min-width: 900px) and (max-width: 950px) {
+    .header-button {
+        width: 62%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -259,6 +271,10 @@
 }
 
 @media only screen and (min-width: 850px) and (max-width: 900px) {
+    .header-button {
+        width: 65%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -310,6 +326,10 @@
 }
 
 @media only screen and (min-width: 800px) and (max-width: 850px) {
+    .header-button {
+        width: 72%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -360,7 +380,71 @@
     }
 }
 
-@media only screen and (min-width: 750px) and (max-width: 800px) {
+@media only screen and (min-width: 768px) and (max-width: 800px) {
+    .header-button {
+        width: 72%;
+    }
+
+    .diuhdg {
+        display: grid;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        margin-top: -45px;
+    }
+
+    .dgg {
+        display: grid !important;
+        margin: 0 auto;
+    }
+
+    .gf {
+        position: relative;
+        top: -2px;
+        display: grid;
+    }
+
+    .titlesss {
+        font-size: 18px !important;
+    }
+
+    img {
+        max-width: 100%;
+        text-align: center;
+        margin: 0 auto;
+        justify-content: center;
+        display: flex;
+    }
+
+    .gdf {
+        margin-top: -20px;
+        display: flex;
+        flex-direction: column;
+    }
+
+    strong {
+        margin-right: 25px;
+        font-size: 20px;
+    }
+
+    .dgg a {
+        font-size: 13px !important;
+    }
+
+    .product-list-item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: baseline;
+        align-self: center;
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 768px) {
+    .header-button {
+        width: 22%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -417,6 +501,10 @@
 }
 
 @media only screen and (min-width: 700px) and (max-width: 750px) {
+    .header-button {
+        width: 22%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -483,6 +571,10 @@
 }
 
 @media only screen and (min-width: 699px) and (max-width: 700px) {
+    .header-button {
+        width: 35%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -543,6 +635,10 @@
 }
 
 @media only screen and (min-width: 650px) and (max-width: 699px) {
+    .header-button {
+        width: 25%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -603,6 +699,10 @@
 }
 
 @media only screen and (min-width: 600px) and (max-width: 650px) {
+    .header-button {
+        width: 25%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -663,6 +763,10 @@
 }
 
 @media only screen and (min-width: 550px) and (max-width: 600px) {
+    .header-button {
+        width: 27%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -723,6 +827,10 @@
 }
 
 @media only screen and (min-width: 500px) and (max-width: 550px) {
+    .header-button {
+        width: 35%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -783,6 +891,14 @@
 }
 
 @media only screen and (min-width: 450px) and (max-width: 500px) {
+    .header-button {
+        width: 35%;
+    }
+
+    .header-buttonn {
+        width: 168px;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -843,6 +959,10 @@
 }
 
 @media only screen and (min-width: 400px) and (max-width: 450px) {
+    .header-button {
+        width: 35%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;
@@ -903,6 +1023,10 @@
 }
 
 @media only screen and (min-width: 350px) and (max-width: 400px) {
+    .header-button {
+        width: 42%;
+    }
+
     .diuhdg {
         display: grid;
         justify-content: space-around;

@@ -1,7 +1,7 @@
 .floating-container {
     position: fixed;
     right: 20px;
-    top: 846px;
+    top: 580px;
     display: flex;
     flex-direction: column-reverse;
     align-items: center;

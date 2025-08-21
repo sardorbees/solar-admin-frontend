@@ -353,7 +353,7 @@ function Gybrid() {
                 <aside className="sidebar">
                     <div className="filter-group">
                         <h3>
-                            <Translator tKey="price" translations={translations} />
+                            {lang === 'uz' ? "Narx (so`m)" : "Цена (сум)"}
                         </h3>
                         <Slider
                             range
@@ -455,12 +455,7 @@ function Gybrid() {
                         <div className="product-grid">
                             {producted.length === 0 && <p>Товары не найдены.</p>}
                             {producted.map((p) => (
-                                <div
-                                    key={p.id}
-                                    className="product-card"
-                                    onClick={() => setSelectedProduct(p)}
-                                    style={{ cursor: "pointer" }}
-                                >
+                                <div key={p.id} className="product-card"  onClick={() => setSelectedProduct(p)} style={{ cursor: "pointer" }} >
                                     <div className="product-image">
                                         <img src={p.image} alt={p.name_ru} className="img-fluid w-100" />
                                     </div>

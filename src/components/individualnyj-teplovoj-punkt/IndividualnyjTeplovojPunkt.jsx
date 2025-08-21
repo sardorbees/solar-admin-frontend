@@ -353,7 +353,7 @@ function IndividualnyjTeplovojPunkt() {
                 <aside className="sidebar">
                     <div className="filter-group">
                         <h3>
-                            <Translator tKey="price" translations={translations} />
+                            {lang === 'uz' ? "Narx (so`m)" : "Цена (сум)"}
                         </h3>
                         <Slider
                             range

@@ -3,7 +3,8 @@ import axios from 'axios';
 import API from "../api";
 import { ToastContainer, toast } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
-
+import WOW from 'wowjs';
+import 'animate.css';
 import '../assets/css/all.min.css';
 import '../assets/css/animate.css';
 import '../assets/css/bootstrap.min.css';
@@ -115,6 +116,8 @@ function SkidkaProduct() {
     const [translations, setTranslations] = useState({});
     const { lang } = useLang();
     const [products, setProducts] = useState([]);
+    const [selectedProduct, setSelectedProduct] = useState(null);
+    const closeModal = () => setSelectedProduct(null);
     const [rangeMin, setRangeMin] = useState(0);
     const [rangeMax, setRangeMax] = useState(7000000);
     const [selectedBrands, setSelectedBrands] = useState([]);
@@ -239,7 +242,7 @@ function SkidkaProduct() {
 
     return (
         <div>
-            <h1 style={{ textAlign: 'center', marginTop: '35px' }}>
+            <h1 style={{ textAlign: 'center', marginTop: '35px' }} className='wow fadeInUp'>
                 {lang === 'uz' ? "Yangilar" : "Новинки"}
             </h1>
             <div className="containeraa">
@@ -248,36 +251,46 @@ function SkidkaProduct() {
                     <div className="product-grid">
                         {products.length === 0 && <p>Товары не найдены.</p>}
                         {products.map((p) => (
-                            <div key={p.id} className="product-card">
-                                <div className="product_img">
-                                    <a>
-                                        <img src={p.image} alt={p.name} className="img-fluid w-100" />
-                                    </a>
+                            <div key={p.id} className="product-card" onClick={() => setSelectedProduct(p)} style={{ cursor: "pointer" }} >
+                                <div className="product-image">
+                                    <img src={p.image} alt={p.name_ru} className="img-fluid w-100" />
                                 </div>
-                                <div className="product-name">{lang === 'uz' ? p.name_uz : p.name_ru}</div>
-                                <div className="product-name">
-                                    <Translator tKey="brandd" translations={translations} />: {p.brand}
-                                </div>
-                                <div className="product-name">
-                                    <Translator tKey="power" translations={translations} />: {p.power} w
-                                </div>
-                                <div className="product-desc">
-                                    <Translator tKey="ssafds" translations={translations} />: <span style={{ color: 'red' }}>{p.reviews} %</span>
-                                </div>
-                                <div className="product-price">
-                                    <Translator tKey="prrr" translations={translations} />: {p.price}  <Translator tKey="som" translations={translations} /><br />
-                                </div>
-                                <del><Translator tKey="old pp" translations={translations} />: {p.old_price && (
-                                    <del>
-                                        {p.old_price.toLocaleString()} <Translator tKey="som" translations={translations} />
-                                    </del>
-                                )}</del>
-                                <div className="flex gap-2 mt-2">
-                                    <a href='tel:++998951481212'>
-                                        <h1 className="buy-button">
-                                            <Translator tKey="orders" translations={translations} />
-                                        </h1>
-                                    </a>
+                                <div className="product-info">
+                                    <h3>{lang === "uz" ? p.name_uz : p.name_ru}</h3>
+                                    <h3 style={{ paddingTop: "5px", fontSize: "20px" }}>
+                                        {lang === "uz" ? "Brand" : "Бранд"}: {p.brand}
+                                    </h3>
+                                    <h3 style={{ paddingTop: "5px", fontSize: "20px" }}>
+                                        {lang === "uz" ? "Quvvat" : "Мощность"}: {p.power} w
+                                    </h3>
+                                    <h3 style={{ paddingTop: "5px", fontSize: "20px" }}>
+                                        {lang === "uz" ? "Tavsif" : "Описание"}:{" "}
+                                        {lang === "uz" ? p.description_uz : p.description_ru}
+                                    </h3>
+                                    <div className="rating">
+                                        <span style={{ fontSize: "20px" }}>
+                                            {lang === "uz" ? "Reyting" : "Рейтинг"}
+                                        </span>{" "}
+                                        ⭐ <span style={{ fontSize: "20px" }}>{p.rating}</span>
+                                    </div>
+                                    <div className="prices">
+                                        <span className="old-price" style={{ fontSize: "25px" }}>
+                                            {p.old_price.toLocaleString()}{" "}
+                                            <Translator tKey="сум" translations={translations} />{" "}
+                                        </span>
+                                        <span className="new-price" style={{ fontSize: "25px", color: "green" }}>
+                                            {p.price.toLocaleString()} сум
+                                        </span>
+                                    </div>
+                                    <hr />
+                                    <div className="bottom-row">
+                                        <button className="compensation">
+                                            {lang === "uz" ? "Buyurtma berish uchun" : "Под Заказ"}
+                                        </button>
+                                        <a href="tel:++998951481212" className="arrow">
+                                            ➜
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
                         ))}
