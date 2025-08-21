@@ -1,18 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { useLang } from '../translator/Translator';
-import FloatingButtons from '../floatingbuttons/FloatingButtons';
+import { Translator, useLang } from '../translator/Translator';
+import FloatingButtons from '../floatingbuttons/FloatingButtons'
 import WOW from 'wowjs';
 import 'animate.css';
 
 function Video() {
     const [videoUrl, setVideoUrl] = useState(null);
     const [error, setError] = useState(null);
-    const { lang } = useLang();
+    const { lang, setLang } = useLang(); // текущий язык и функция смены языка
 
     useEffect(() => {
-        new WOW.WOW({ live: false }).init(); // инициализируем wow.js
-
         const fetchVideo = async () => {
             try {
                 const response = await axios.get('https://django-admin-pro.onrender.com/api/banner_video/banner-videos/');
@@ -40,7 +38,7 @@ function Video() {
             <FloatingButtons />
             {videoUrl && (
                 <video
-                    key={videoUrl}
+                    key={videoUrl} // перезапустит проигрывание при обновлении URL
                     autoPlay
                     loop
                     muted
