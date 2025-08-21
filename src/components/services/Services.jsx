@@ -42,7 +42,7 @@ function Services() {
                             <div className="page-header-box">
                                 <br /><br /><br />
                                 <h1 className="text-anime">
-                                    <Translator tKey="catolosedd" />
+                                    {lang === 'uz' ? "Bizning xizmatlarimiz" : "Наш Услуги"}
                                 </h1>
                             </div>
                         </div>

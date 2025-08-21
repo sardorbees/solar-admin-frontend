@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Translator, useLang } from '../translator/Translator';
+import '../assets/css/filter.css'
 
 const BrandList = () => {
     const [brands, setBrands] = useState([]);
@@ -46,7 +47,7 @@ const BrandList = () => {
     };
 
     return (
-        <div>
+        <div className="brand-filter-box">
             <div className="space-y-2">
                 {brands.map((brand) => (
                     <div key={brand.slug} className="flsss11">
@@ -55,15 +56,10 @@ const BrandList = () => {
                             id={brand.slug}
                             checked={selected.includes(brand.slug)}
                             onChange={() => togglePower(brand.slug)}
-                            className="mr-2"
                         />
-                        <a
-                            href={brand.slug}
-                            className="ml-2"
-                        >
-                            {brand.name}  <Translator tKey="brandd" translations={translations} />
+                        <a href={`/${brand.slug}`} className="ml-2" style={{ color: '#28a745' }}>
+                            {brand.name}
                         </a>
-                        <br />
                     </div>
                 ))}
             </div>

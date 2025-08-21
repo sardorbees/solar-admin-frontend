@@ -1,0 +1,126 @@
+.filter-group {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    /* тень яркая и мягкая */
+    margin-bottom: 20px;
+    max-width: 100%;
+    transition: box-shadow 0.3s ease;
+}
+
+.filter-group:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+    /* при наведении чуть сильнее */
+}
+
+.filter-group h3 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 16px;
+}
+
+/* Основной трек (фон под ползунком) */
+.rc-slider-rail {
+    background-color: #e0e0e0;
+    height: 6px;
+    border-radius: 3px;
+}
+
+/* Активный участок трека (между ползунками) */
+.rc-slider-track {
+    background-color: #28a745;
+    height: 6px;
+    border-radius: 3px;
+}
+
+/* Ползунок (handle) */
+.rc-slider-handle {
+    border: 2px solid #28a745;
+    background-color: #fff;
+    width: 20px;
+    height: 20px;
+    margin-top: -7px;
+    border-radius: 50%;
+    box-shadow: 0 0 0 4px rgba(40, 167, 69, 0.2);
+    transition: border 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+}
+
+.rc-slider-handle:hover {
+    box-shadow: 0 0 0 6px rgba(40, 167, 69, 0.3);
+    border-color: #28a745;
+}
+
+/* При фокусе */
+.rc-slider-handle:focus {
+    outline: none;
+    box-shadow: 0 0 0 6px rgba(40, 167, 69, 0.4);
+}
+
+/* Контейнер всего слайдера */
+.rc-slider {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.price-range {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    user-select: none;
+}
+
+.price-range span {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.view-toggle-button {
+    background: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 10px 14px;
+    transition: all 0.3s ease;
+    color: #555;
+}
+
+.view-toggle-button:hover {
+    background: #e6f4ea;
+    color: #28a745;
+}
+
+.view-toggle-button.active {
+    background: #28a745;
+    color: #fff;
+    border-color: #28a745;
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.3);
+}
+
+.dgg {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.dgg a {
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(135deg, #4a90e2, #007bff);
+    padding: 10px 18px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.dgg a:hover {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}

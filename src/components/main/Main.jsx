@@ -10,6 +10,7 @@ import NewProduct from '../new_product/NewProduct'
 import AllCategory from '../allcategory/AllCategory'
 import OurProject from '../our_project/OurProject'
 import About from '../about/About'
+import CompanyCard from '../companycard/CompanyCard';
 import { Translator, useLang } from '../translator/Translator';
 
 function Main() {
@@ -19,12 +20,12 @@ function Main() {
             <Video />
             <ProductSkidka />
             <NewProduct />
-            <FloatingButtons />
             <AllCategory />
             <OurProject />
-            < WhyChooseusLayout />
             <OurProcessLlayout />
+            <CompanyCard />
             <About />
+            <FloatingButtons />
             <div class="footer-ticker">
                 <div class="scrolling-ticker">
                     <div class="scrolling-ticker-box">

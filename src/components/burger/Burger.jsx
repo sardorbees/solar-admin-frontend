@@ -19,14 +19,6 @@ function Burger() {
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    // Загружаем переводы из API при смене языка
-    useEffect(() => {
-        axios
-            .get(`http://django-admin-pro.onrender.com/api/translations/?lang=${lang}`)
-            .then((res) => setTranslations(res.data))
-            .catch((err) => console.error("Ошибка загрузки переводов", err));
-    }, [lang]);
-
     return (
         <>
             <Button variant="primary" onClick={handleShow}>

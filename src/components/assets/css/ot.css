@@ -1,0 +1,62 @@
+/* Список */
+.sf {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 320px;
+}
+
+/* Элемент списка */
+.sgdfh {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Чекбоксы */
+.sgdfh input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #28a745;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.sgdfh input[type="checkbox"]:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.sgdfh input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Ссылки */
+.sgdfh a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.sgdfh a:hover {
+    color: #28a745;
+}

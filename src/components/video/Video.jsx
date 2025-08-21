@@ -1,14 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Translator, useLang } from '../translator/Translator';
-import FloatingButtons from '../floatingbuttons/FloatingButtons'
+import { useLang } from '../translator/Translator';
+import FloatingButtons from '../floatingbuttons/FloatingButtons';
+import WOW from 'wowjs';
+import 'animate.css';
 
 function Video() {
     const [videoUrl, setVideoUrl] = useState(null);
     const [error, setError] = useState(null);
-    const { lang, setLang } = useLang(); // текущий язык и функция смены языка
+    const { lang } = useLang();
 
     useEffect(() => {
+        new WOW.WOW({ live: false }).init(); // инициализируем wow.js
+
         const fetchVideo = async () => {
             try {
                 const response = await axios.get('https://django-admin-pro.onrender.com/api/banner_video/banner-videos/');
@@ -36,7 +40,7 @@ function Video() {
             <FloatingButtons />
             {videoUrl && (
                 <video
-                    key={videoUrl} // перезапустит проигрывание при обновлении URL
+                    key={videoUrl}
                     autoPlay
                     loop
                     muted
@@ -59,20 +63,31 @@ function Video() {
             <div className="container h-100 d-flex align-items-center justify-content-center text-center">
                 <div className="hero-layout2-box text-white">
                     <div className="section-title mb-4">
-                        <h1 className="text-anime">
+                        <h1
+                            className="wow bounceInDown"
+                            data-wow-duration="1.5s"
+                        >
                             {lang === 'uz' ? "Enerji Project" : "Enerji Project"}
                         </h1>
-                        <h3>
+                        <h3
+                            className="wow fadeInUp"
+                            data-wow-delay="0.5s"
+                            data-wow-duration="1.5s"
+                        >
                             {lang === 'uz' ? "Konsalting muhandisligi" : "Consulting Engineering"}
                         </h3>
                     </div>
 
                     <div className="hero-content">
                         {error ? (
-                            <p className="text-danger">{error}</p>
+                            <p className="text-danger wow shake" data-wow-delay="0.2s">
+                                {error}
+                            </p>
                         ) : (
-                            <p>
-                                {lang === 'uz' ? "Qulaylik, xavfsizlik va samaradorlik hammasi bir joyda" : "Удобства и Безопасность и Эффективность все одном месте"}
+                            <p className="wow fadeIn" data-wow-delay="1s" data-wow-duration="2s">
+                                {lang === 'uz'
+                                    ? "Qulaylik, xavfsizlik va samaradorlik hammasi bir joyda"
+                                    : "Удобства и Безопасность и Эффективность все одном месте"}
                             </p>
                         )}
                     </div>

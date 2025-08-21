@@ -38,10 +38,10 @@ function Footer() {
 
                                     <div class="footer-contact-info">
                                         <h3>
-                                            <Translator tKey="location" />
+                                            {lang === 'uz' ? "Bizning joylashuvimiz" : "Наше местоположение"}
                                         </h3>
                                         <p>
-                                            <Translator tKey="location1" />
+                                            {lang === 'uz' ? "Art Bulok L1-21" : "Арк Булок L1-21"}
                                         </p>
                                     </div>
                                 </div>
@@ -57,10 +57,10 @@ function Footer() {
 
                                     <div class="footer-contact-info">
                                         <h3>
-                                            <Translator tKey="inst" />
+                                            {lang === 'uz' ? "Instagram" : "Instagram"}
                                         </h3>
                                         <p>
-                                            <Translator tKey="eneh" />
+                                            {lang === 'uz' ? "EnerjiProject" : "EnerjiProject"}
                                         </p>
                                     </div>
                                 </div>
@@ -76,10 +76,10 @@ function Footer() {
 
                                     <div class="footer-contact-info">
                                         <h3>
-                                            <Translator tKey="face" />
+                                            {lang === 'uz' ? "Facebook" : "Facebook"}
                                         </h3>
                                         <p>
-                                            <Translator tKey="eneh" />
+                                            {lang === 'uz' ? "EnerjiProject" : "EnerjiProject"}
                                         </p>
                                     </div>
                                 </div>

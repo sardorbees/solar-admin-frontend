@@ -3829,9 +3829,10 @@ footer.main-footer {
 /******************************************/
 /****	  	 25. About us page css 	   ****/
 /******************************************/
-.text-anime{
+.text-anime {
     padding-top: 45px;
 }
+
 .page-header {
     position: relative;
     background: url(../img/icon/header-banner.jpg) no-repeat center center;
@@ -6203,6 +6204,7 @@ footer.main-footer {
         font-size: 30px;
         text-align: center;
         margin-bottom: 4px;
+        margin-top: 35px;
     }
 
     .page-header-box ol {
@@ -6629,7 +6631,7 @@ footer.main-footer {
 }
 
 .g {
-    display: flex;
+    display: grid;
     column-gap: 25px;
     flex-wrap: wrap;
 }
@@ -6679,9 +6681,8 @@ footer.main-footer {
 
     .page-header {
         position: relative;
-        background: url(http://localhost:3000/static/media/header-banner.f0a186c….jpg) no-repeat center center;
         padding: 260px 0 100px;
-        margin-top: -321px;
+        margin-top: -372px;
         overflow: hidden;
     }
 
@@ -6708,9 +6709,8 @@ footer.main-footer {
 
     .page-header {
         position: relative;
-        background: url(http://localhost:3000/static/media/header-banner.f0a186c….jpg) no-repeat center center;
         padding: 260px 0 100px;
-        margin-top: -321px;
+        margin-top: -372px;
         overflow: hidden;
     }
 
@@ -6736,9 +6736,8 @@ footer.main-footer {
 
     .page-header {
         position: relative;
-        background: url(http://localhost:3000/static/media/header-banner.f0a186c….jpg) no-repeat center center;
         padding: 260px 0 100px;
-        margin-top: -321px;
+        margin-top: -372px;
         overflow: hidden;
     }
 
@@ -6789,9 +6788,8 @@ footer.main-footer {
 
     .page-header {
         position: relative;
-        background: url(http://localhost:3000/static/media/header-banner.f0a186c….jpg) no-repeat center center;
         padding: 260px 0 100px;
-        margin-top: -352px;
+        margin-top: -372px;
         overflow: hidden;
     }
 
@@ -6818,9 +6816,8 @@ footer.main-footer {
 
     .page-header {
         position: relative;
-        background: url(http://localhost:3000/static/media/header-banner.f0a186c….jpg) no-repeat center center;
         padding: 260px 0 100px;
-        margin-top: -368px;
+        margin-top: -391px;
         overflow: hidden;
     }
 
@@ -6880,4 +6877,146 @@ footer.main-footer {
     white-space: nowrap;
     font-size: 12px;
     column-gap: 15px;
+}
+
+.diuhdg {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.product-list-item {
+    display: flex;
+    gap: 15px;
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+    /* flex-direction: column; */
+}
+
+/* .product-list {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    align-content: baseline;
+} */
+
+.oigjdgf {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gfg {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.titlesss {
+    padding-top: 35px;
+}
+
+@media only screen and (min-width: 1300px) and (max-width: 1400px) {
+    .diuhdg {
+        margin-top: -29px;
+    }
+
+    .gf {
+        position: relative;
+        top: 29px;
+    }
+
+    .gdf {
+        margin-top: -60px;
+    }
+}
+
+@media only screen and (min-width: 1300px) and (max-width: 1350px) {
+    .diuhdg {
+        display: grid;
+        margin-left: -105px;
+    }
+
+    .gf {
+        position: relative;
+        top: -2px;
+    }
+
+    .gdf {
+        margin-top: -20px;
+    }
+
+    strong {
+        margin-right: 25px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1250px) and (max-width: 1300px) {
+    .diuhdg {
+        display: grid;
+        margin-left: -105px;
+        margin-top: -25px;
+    }
+
+    .gf {
+        position: relative;
+        top: -2px;
+    }
+
+    .gdf {
+        margin-top: -20px;
+    }
+
+    strong {
+        margin-right: 25px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1200px) and (max-width: 1250px) {
+    .diuhdg {
+        display: grid;
+        margin-left: -105px;
+        margin-top: -25px;
+    }
+
+    .gf {
+        position: relative;
+        top: -2px;
+    }
+
+    .gdf {
+        margin-top: -20px;
+    }
+
+    strong {
+        margin-right: 25px;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width: 1150px) and (max-width: 1200px) {
+    .diuhdg {
+        display: grid;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .gf {
+        position: relative;
+        top: -2px;
+        display: grid;
+    }
+
+    .gdf {
+        margin-top: -20px;
+    }
+
+    strong {
+        margin-right: 25px;
+        font-size: 20px;
+    }
 }

@@ -31,7 +31,7 @@ function OurProcessLayout() {
                     <div className="col-md-12">
                         <div className="section-title">
                             <h3 className="wow fadeInUp">
-                                <Translator tKey="our_projectsse" translations={translations} />
+                                {lang === 'uz' ? "Bizning jarayonlarimiz" : "Наш Процесcы"}
                             </h3>
                         </div>
                     </div>

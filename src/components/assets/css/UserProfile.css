@@ -1,0 +1,71 @@
+.profile-container {
+    max-width: 900px;
+    margin: 2rem auto;
+    font-family: 'Segoe UI', sans-serif;
+    color: #1a1a1a;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    background-color: #f8fafc;
+    padding: 20px;
+    border-radius: 12px;
+    position: relative;
+}
+
+.profile-image {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.profile-details h2 {
+    margin: 0;
+}
+
+.social-icons {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+}
+
+.social-icons i {
+    font-size: 16px;
+    color: #555;
+    cursor: pointer;
+}
+
+.edit-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px 14px;
+    font-size: 14px;
+    background-color: #f3f4f6;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.profile-section {
+    background-color: #fefefe;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #e5e7eb;
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 16px;
+}

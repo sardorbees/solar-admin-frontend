@@ -69,7 +69,6 @@ export default function Profile() {
   return (
     <div style={{ maxWidth: '100%', }}>
       <FloatingButtons />
-      <h2>Ваш Профил</h2>
       <div class="page-header parallaxie">
         <div class="container">
           <div class="row">
@@ -87,7 +86,7 @@ export default function Profile() {
 
       {editing ? (
         <form onSubmit={handleSave} encType="multipart/form-data">
-          <div class="card mb-3">
+          <div class="cards mb-3">
             <div class="card-body">
               <div class="row">
                 <div class="col-sm-3" className="ff">
@@ -184,15 +183,13 @@ export default function Profile() {
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="/" style={{ color: 'var(--text-color)' }}>{lang === 'uz' ? "Asosiy" : "Основный"}</a></li>
                 <li class="breadcrumb-item"><a style={{ color: 'var(--text-color)' }}>{lang === 'uz' ? "Profilingiz" : "Вашь Профиль "}</a></li>
-                <li class="breadcrumb-item active" aria-current="page" style={{ color: 'var(--text-color)' }}>{profile.first_name}</li>
-                <li class="breadcrumb-item active" aria-current="page" style={{ color: 'var(--text-color)' }}><a style={{ color: 'var(--text-color)' }}>{lang === 'uz' ? "Buyurtmalar uchun" : "Для заказов"}</a></li>
-                <li class="breadcrumb-item active" aria-current="page" style={{ color: 'var(--text-color)' }}><a style={{ color: 'var(--text-color)' }}>{lang === 'uz' ? "Barcha Buyurtmalar" : "Все Заказы"}</a></li>
+                <li class="breadcrumb-item active" aria-current="page" style={{ color: 'var(--text-color)' }}>{profile.username}</li>
                 <li class="breadcrumb-item active" aria-current="page" style={{ color: 'var(--text-color)' }}><a href="/comment" style={{ color: 'var(--text-color)' }}>{lang === 'uz' ? "Fikr yozing" : "Написать комментария"}</a></li>
               </ol>
             </nav>
             <div class="row gutters-sm">
               <div class="col-md-4 mb-3">
-                <div class="card">
+                <div class="cards">
                   <div class="card-body">
                     <div class="d-flex flex-column align-items-center text-center">
                       {profile.image && (
@@ -206,8 +203,7 @@ export default function Profile() {
                         />
                       )}
                       <div class="mt-3">
-                        <h4>{profile.first_name}</h4>
-                        <p class="text-secondary mb-1">{profile.email}</p>
+                        <h4>{profile.username}</h4>
                         <p class="text-muted font-size-sm">{profile.phone_number}</p>
                         <div className="g">
                           <a href="https://www.instagram.com/solarenerjiproject?igsh=bmozcmUxNGMyMHRp"><button class="btn btn-outline-primary" style={{ fontSize: '14px' }}>{lang === 'uz' ? "Instagramga obuna bo'ling" : "Подписатся наш Инстаграмм"}</button></a>
@@ -233,11 +229,9 @@ export default function Profile() {
                     </li>
                   </ul>
                 </div>
-                <br /><br />
-                <button onClick={handleLogout} class="btn-default">🚪 {lang === 'uz' ? "Chiqish" : "Выйти из аккаунта"}</button>
               </div>
               <div class="col-md-8">
-                <div class="card mb-3">
+                <div class="cards mb-3">
                   <div class="card-body">
                     <div class="row">
                       <div class="col-sm-3">
@@ -246,18 +240,7 @@ export default function Profile() {
                         </h6>
                       </div>
                       <div class="col-sm-9 text-secondary">
-                        {profile.first_name}
-                      </div>
-                    </div>
-                    <hr />
-                    <div class="row">
-                      <div class="col-sm-3">
-                        <h6 class="mb-0">
-                          <Translator tKey="email" />
-                        </h6>
-                      </div>
-                      <div class="col-sm-9 text-secondary">
-                        {profile.email}
+                        {profile.username}
                       </div>
                     </div>
                     <hr />
@@ -272,9 +255,11 @@ export default function Profile() {
                       </div>
                     </div>
                     <hr />
-                    <button onClick={() => navigate("/change-password")} class="btn-default">🔑 {lang === 'uz' ? "Parolni o'zgartirish" : "Сменить пароль"}: {profile.phone_number}</button>
-                    <br /><br /><br />
-                    <button onClick={() => setEditing(true)} class="btn-default">✏️ {lang === 'uz' ? "Profilni tahrirlash" : "Изменить профиль"}: {profile.phone_number}</button>
+                    <div className="gfg">
+                      <button onClick={() => navigate("/change-password")} class="btn-default">🔑 {lang === 'uz' ? "Parolni o'zgartirish" : "Сменить пароль"}</button>
+                      <br /><br />
+                      <button onClick={handleLogout} class="btn-default">🚪 {lang === 'uz' ? "Chiqish" : "Выйти из аккаунта"}</button>
+                    </div>
                   </div>
                 </div>
               </div>

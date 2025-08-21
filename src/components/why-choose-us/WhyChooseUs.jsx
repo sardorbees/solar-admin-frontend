@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useLang } from '../translator/Translator';
+import WOW from 'wowjs';
+import 'animate.css'; // обязательный импорт
 
 function WhyChooseUs() {
     const [items, setItems] = useState([]);
     const [error, setError] = useState(null);
     const { lang } = useLang();
+
+    useEffect(() => {
+        new WOW.WOW({ live: false }).init(); // инициализация анимаций
+    }, []);
 
     const fetchItems = async () => {
         try {
@@ -32,7 +38,7 @@ function WhyChooseUs() {
                             <h3 className="wow fadeInUp">
                                 {lang === 'uz' ? "Nega bizni tanlaysiz?" : "Почему выбирают нас?"}
                             </h3>
-                            <h2 className="text-anime">
+                            <h2 className="text-anime wow zoomIn">
                                 {lang === 'uz'
                                     ? "Quyosh energiyasi yechimlarini taqdim etish"
                                     : "Предоставление решений в области солнечной энергетики"}

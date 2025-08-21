@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import WOW from 'wowjs';
+import 'animate.css';
+
 import logo from '../assets/img/logo/12.png';
 import '../assets/css/all.min.css';
 import '../assets/css/animate.css';
@@ -7,16 +10,18 @@ import '../assets/css/custom.css';
 import '../assets/css/magnific-popup.css';
 import '../assets/css/slicknav.min.css';
 import '../assets/css/swiper-bundle.min.css';
+
 import Navbar from '../nabvar/Navbar';
 import Burger from '../burger/Burger';
-import { Translator, useLang } from '../translator/Translator'; // именованный импорт
+import { useLang } from '../translator/Translator';
 
 function Header() {
-    const { lang, setLang } = useLang(); // контекст языка
+    const { lang } = useLang();
     const [translations, setTranslations] = useState({});
 
-    // Автообновление переводов каждую секунду
     useEffect(() => {
+        new WOW.WOW({ live: false }).init();
+
         const fetchTranslations = async () => {
             try {
                 const res = await fetch(`https://django-admin-pro.onrender.com/api/translations/?lang=${lang}`);
@@ -27,8 +32,8 @@ function Header() {
             }
         };
 
-        fetchTranslations(); // сразу
-        const interval = setInterval(fetchTranslations, 1000); // каждую секунду
+        fetchTranslations();
+        const interval = setInterval(fetchTranslations, 1000);
 
         return () => clearInterval(interval);
     }, [lang]);
@@ -38,23 +43,38 @@ function Header() {
             <div className="header-sticky">
                 <nav className="navbar navbar-expand-lg">
                     <div className="container">
-                        <a className="navbar-brand" href="/">
+                        {/* Логотип с анимацией */}
+                        <a
+                            className="navbar-brand wow fadeInDown"
+                            href="/"
+                            data-wow-duration="1s"
+                            data-wow-delay="0.2s"
+                        >
                             <img src={logo} alt="Logo" className="logoa" />
                         </a>
 
                         <div className="collapse navbar-collapse main-menu">
                             <ul className="navbar-nav mr-auto" id="menu">
-                                <li className="nav-item">
+                                <li
+                                    className="nav-item wow fadeInRight"
+                                    data-wow-delay="0.4s"
+                                >
                                     <a className="nav-link" href="/catalog">
                                         {lang === 'uz' ? "Katalog" : "Каталог"}
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li
+                                    className="nav-item wow fadeInRight"
+                                    data-wow-delay="0.6s"
+                                >
                                     <a className="nav-link" href="/services">
                                         {lang === 'uz' ? "Xizmatlar" : "Услуги"}
                                     </a>
                                 </li>
-                                <li className="nav-item">
+                                <li
+                                    className="nav-item wow fadeInRight"
+                                    data-wow-delay="0.8s"
+                                >
                                     <a className="nav-link" href="/video-type">
                                         {lang === 'uz' ? "Loyihalar" : "Проекты"}
                                     </a>
@@ -62,13 +82,21 @@ function Header() {
                             </ul>
                         </div>
 
-                        <li className="nav-iteme">
+                        {/* Navbar с анимацией */}
+                        <li
+                            className="nav-iteme wow fadeInLeft"
+                            data-wow-delay="1s"
+                        >
                             <a className="nav-link">
                                 <Navbar />
                             </a>
                         </li>
 
-                        <div className="navbar-toggle">
+                        {/* Burger с анимацией */}
+                        <div
+                            className="navbar-toggle wow fadeInLeft"
+                            data-wow-delay="1.2s"
+                        >
                             <Burger />
                         </div>
                     </div>

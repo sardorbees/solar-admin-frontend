@@ -15,6 +15,7 @@ function Videoss() {
     const [items, setItems] = useState([]);
     const [loading, setLoading] = useState(true);
     const [translations, setTranslations] = useState({});
+    const { lang } = useLang();
 
     useEffect(() => {
         fetchItems();
@@ -41,7 +42,7 @@ function Videoss() {
                             <div className="page-header-box">
                                 <br /><br /><br />
                                 <h1 className="text-anime">
-                                    <Translator tKey="catolosee" />
+                                    {lang === 'uz' ? "Bizning loyihalarimiz" : "Наш Проекты"}
                                 </h1>
                             </div>
                         </div>

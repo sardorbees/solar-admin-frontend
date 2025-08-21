@@ -5,7 +5,7 @@ const Nav = () => {
     const [categories, setCategories] = useState([]);
 
     useEffect(() => {
-        axios.get("http://127.0.0.1:8000/api/categories/")
+        axios.get("https://django-admin-pro.onrender.com/api/category/categories/")
             .then((res) => {
                 console.log("Категории:", res.data);
                 // адаптируй это под свою структуру

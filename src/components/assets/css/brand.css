@@ -1,0 +1,59 @@
+/* Внешняя обёртка */
+.brand-filter-box {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    max-width: 320px;
+}
+
+/* Каждая строка бренда */
+.flsss11 {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 15px;
+    color: #333;
+}
+
+/* Чекбокс кастомный */
+.flsss11 input[type="checkbox"] {
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #28a745;
+    border-radius: 4px;
+    background: #fff;
+    cursor: pointer;
+    position: relative;
+    margin-right: 10px;
+    transition: 0.2s ease-in-out;
+}
+
+.flsss11 input[type="checkbox"]:checked {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.flsss11 input[type="checkbox"]:checked::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    left: 5px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+/* Ссылка */
+.flsss11 a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.2s;
+}
+
+.flsss11 a:hover {
+    color: #28a745;
+}

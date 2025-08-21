@@ -3,13 +3,13 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="../src/components/assets/img/logo/Лого.png" />
+  <link rel="icon" href="./energy.png" />
   <meta name="csrf-token" content="{{ csrf_token }}">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="../src/components/assets/img/logo/Лого.png" />
-  <link rel="manifest" href="../src/components/assets/img/logo/Лого.png" />
+  <link rel="apple-touch-icon" href="./energy.png" />
+  <link rel="manifest" href="./energy.png" />
   <title>Enerji Project</title>
 </head>
 
@@ -43,7 +43,7 @@
       const jsonData = Object.fromEntries(formData.entries());
 
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/applicationapplications/", {
+        const res = await fetch("http://django-admin-pro.onrender.com/api/applicationapplicationapplications/", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(jsonData),
@@ -88,7 +88,7 @@
       }
 
       try {
-        const res = await fetch("http://127.0.0.1:8000/api/unlock-ip/");
+        const res = await fetch("http://django-admin-pro.onrender.com/api/applicationunlock-ip/");
         const data = await res.json();
         messageBox.textContent = data.detail || "Разблокировано.";
         localStorage.removeItem("block_until");
@@ -134,7 +134,7 @@
         recaptcha_token: token,
       };
 
-      fetch("http://127.0.0.1:8000/api/applicationapplications/", {
+      fetch("http://django-admin-pro.onrender.com/api/applicationapplicationapplications/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

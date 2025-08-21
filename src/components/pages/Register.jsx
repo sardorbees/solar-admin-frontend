@@ -2,35 +2,43 @@ import React, { useState } from "react";
 import API from "../api";
 import { useNavigate } from "react-router-dom";
 import logo from '../assets/img/logo/12.png';
-import '../assets/css/Register.css'; // ✅ Подключение CSS
+import '../assets/css/Register.css';
 import { Translator, useLang } from '../translator/Translator';
-import FloatingButtons from '../floatingbuttons/FloatingButtons'
-import { FaRegEye } from "react-icons/fa6";
-import { FaRegEyeSlash } from "react-icons/fa6";
+import FloatingButtons from '../floatingbuttons/FloatingButtons';
+import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 
 export default function Register() {
-  const [form, setForm] = useState({});
+  const [form, setForm] = useState({
+    username: "",
+    password: "",
+    phone_number: ""
+  });
   const navigate = useNavigate();
   const [showOld, setShowOld] = useState(false);
   const { lang } = useLang();
 
   const handleChange = (e) => {
-    const { name, value, files } = e.target;
-    setForm({ ...form, [name]: files ? files[0] : value });
+    const { name, value } = e.target;
+    setForm({ ...form, [name]: value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const formData = new FormData();
-    Object.entries(form).forEach(([k, v]) => v && formData.append(k, v));
+    formData.append("username", form.username);
+    formData.append("password", form.password);
+    formData.append("phone_number", form.phone_number);
 
     try {
-      await API.post("api/accounts/register/", formData);
+      await API.post("api/accounts/register/", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
       alert("✅ Регистрация прошла успешно");
-      window.dispatchEvent(new Event("authChanged"));
       navigate("/login");
     } catch (err) {
-      alert("Ошибка регистрации");
+      console.error(err.response?.data || err);
+      alert("❌ Ошибка регистрации");
     }
   };
 
@@ -44,7 +52,7 @@ export default function Register() {
               <div className="page-header-box">
                 <br /><br /><br />
                 <h1 className="text-anime">
-                  <Translator tKey="rrrr" />
+                  {lang === 'uz' ? "Roʻyxatdan oʻtish" : "Зарегистрироваться"}
                 </h1>
               </div>
             </div>
@@ -54,25 +62,24 @@ export default function Register() {
 
       <form onSubmit={handleSubmit} encType="multipart/form-data" autoComplete="off">
         <img src={logo} alt="logo" />
+
+        {/* Username */}
         <input
-          name="first_name"
+          name="username"
           type="name"
-          placeholder={lang === 'uz' ? "Foydalanuvchi nomi" : "Username"}
+          placeholder={lang === 'uz' ? "Foydalanuvchi nomi" : "Имя пользователя"}
+          value={form.username}
           onChange={handleChange}
           required
         />
-        <input
-          name="email"
-          type="email"
-          placeholder={lang === 'uz' ? "E-pochta manzili" : "Эл. адрес"}
-          onChange={handleChange}
-          required
-        />
+
+        {/* Password */}
         <div className="password-container">
           <input
             name="password"
             type={showOld ? "text" : "password"}
             placeholder={lang === 'uz' ? "Parol" : "Пароль"}
+            value={form.password}
             onChange={handleChange}
             required
           />
@@ -85,34 +92,19 @@ export default function Register() {
             {showOld ? <FaRegEyeSlash /> : <FaRegEye />}
           </button>
         </div>
-        <input
-          name="username"
-          type="name"
-          placeholder={lang === 'uz' ? "Foydalanuvchi nomi" : "Имя пользователя"}
-          onChange={handleChange}
-          required
-        />
-        <input
-          name="last_name"
-          type="name"
-          placeholder={lang === 'uz' ? "Familiya" : "Фамилия"}
-          onChange={handleChange}
-          required
-        />
+
+        {/* Phone Number */}
         <input
           name="phone_number"
-          type="phone"
+          type="tel"
           placeholder={lang === 'uz' ? "Telefon" : "Телефон"}
+          value={form.phone_number}
           onChange={handleChange}
           required
         />
-        <input
-          name="image"
-          type="file"
-          onChange={handleChange}
-        />
+
         <button type="submit">
-          <Translator tKey="rra" />
+          {lang === 'uz' ? "Roʻyxatdan oʻtish" : "Зарегистрироваться"}
         </button>
       </form>
     </>
