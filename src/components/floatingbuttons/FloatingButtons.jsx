@@ -1,17 +1,18 @@
 // FloatingMenu.jsx
 import React, { useState } from "react";
 import { FaInstagram, FaTelegramPlane, FaTimes, FaCommentDots } from "react-icons/fa";
-import { useLang } from "../translator/Translator";
-import ruFlag from '../assets/img/icon/russia.png';
-import uzFlag from '../assets/img/icon/uzbekistan.png';
+import { Translator, useLang } from "../translator/Translator";
+import ru from '../assets/img/icon/russia.png'
+import uz from '../assets/img/icon/uzbekistan.png'
 
 const FloatingButtons = () => {
     const [open, setOpen] = useState(false);
+    const [user, setUser] = useState(null);
     const { lang, setLang } = useLang();
 
     return (
         <div style={styles.container}>
-            {/* Social buttons */}
+            {/* Кнопки меню */}
             <div style={{ ...styles.menu, transform: open ? "translateY(0)" : "translateY(20px)", opacity: open ? 1 : 0 }}>
                 <a href="https://www.instagram.com/enerjiproject?igsh=bmozcmUxNGMyMHRp" style={{ ...styles.button, backgroundColor: "#FF3338" }}>
                     <FaInstagram style={styles.icon} />
@@ -24,27 +25,27 @@ const FloatingButtons = () => {
                 </a>
             </div>
 
-            {/* Main toggle button */}
+            {/* Основная кнопка */}
             <button
                 style={{ ...styles.button, backgroundColor: "#F44336" }}
                 onClick={() => setOpen(!open)}
             >
                 {open ? <FaTimes style={styles.icon} /> : <FaCommentDots style={styles.icon} />}
             </button>
+            <br /><br />
 
-            {/* Language Selector */}
             <div style={styles.languageSelector}>
                 <button
                     style={{ ...styles.langButton, border: lang === 'uz' ? '2px solid #F44336' : '2px solid transparent' }}
                     onClick={() => setLang('uz')}
                 >
-                    RU
+                    UZ
                 </button>
                 <button
                     style={{ ...styles.langButton, border: lang === 'ru' ? '2px solid #F44336' : '2px solid transparent' }}
                     onClick={() => setLang('ru')}
                 >
-                    UZ
+                    RU
                 </button>
             </div>
         </div>
@@ -56,7 +57,6 @@ const styles = {
         position: "fixed",
         bottom: "30px",
         right: "20px",
-        display: "flex",
         flexDirection: "column-reverse",
         alignItems: "center",
         gap: "12px",
@@ -66,6 +66,9 @@ const styles = {
         transition: "all 0.3s ease",
     },
     button: {
+        position: 'relative',
+        top: '50px',
+        left: '15px',
         width: "60px",
         height: "60px",
         borderRadius: "50%",
@@ -101,11 +104,6 @@ const styles = {
         cursor: "pointer",
         transition: "border 0.3s",
     },
-    flag: {
-        width: "24px",
-        height: "24px",
-        borderRadius: "50%",
-    }
 };
 
 export default FloatingButtons;
