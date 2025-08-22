@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://django-admin-pro.onrender.com/",
+  baseURL: "https://django-admin-pro.onrender.com/",
 });
 
 API.interceptors.request.use((config) => {

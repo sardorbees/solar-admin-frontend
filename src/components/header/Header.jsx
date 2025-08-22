@@ -11,6 +11,7 @@ import '../assets/css/magnific-popup.css';
 import '../assets/css/slicknav.min.css';
 import '../assets/css/swiper-bundle.min.css';
 
+import Game from '../game/Game'; // <--- Исправлено имя компонента
 import Navbar from '../nabvar/Navbar';
 import Burger from '../burger/Burger';
 import { useLang } from '../translator/Translator';
@@ -18,6 +19,8 @@ import { useLang } from '../translator/Translator';
 function Header() {
     const { lang } = useLang();
     const [translations, setTranslations] = useState({});
+    const [modalOpen, setModalOpen] = useState(false);
+    const [canPlay, setCanPlay] = useState(false);
 
     useEffect(() => {
         new WOW.WOW({ live: false }).init();
@@ -38,71 +41,83 @@ function Header() {
         return () => clearInterval(interval);
     }, [lang]);
 
+    useEffect(() => {
+        const lastPlayedYear = localStorage.getItem('discountGameYear');
+        const currentYear = new Date().getFullYear();
+
+        if (lastPlayedYear !== String(currentYear)) {
+            setCanPlay(true); // разрешить игру
+        }
+    }, []);
+
+    // Когда игрок поймал скидку, записываем в localStorage
+    const handleGameClose = () => {
+        const currentYear = new Date().getFullYear();
+        localStorage.setItem('discountGameYear', String(currentYear));
+        setModalOpen(false);
+        setCanPlay(false); // запретить повторно
+    };
+
     return (
         <header className="main-header">
             <div className="header-sticky">
                 <nav className="navbar navbar-expand-lg">
                     <div className="container">
-                        {/* Логотип с анимацией */}
-                        <a
-                            className="navbar-brand wow fadeInDown"
-                            href="/"
-                            data-wow-duration="1s"
-                            data-wow-delay="0.2s"
-                        >
+                        {/* Логотип */}
+                        <a className="navbar-brand wow fadeInDown" href="/" data-wow-duration="1s" data-wow-delay="0.2s">
                             <img src={logo} alt="Logo" className="logoa" />
                         </a>
 
                         <div className="collapse navbar-collapse main-menu">
                             <ul className="navbar-nav mr-auto" id="menu">
-                                <li
-                                    className="nav-item wow fadeInRight"
-                                    data-wow-delay="0.4s"
-                                >
+                                {/* Навигация */}
+                                <li className="nav-item wow fadeInRight" data-wow-delay="0.4s">
                                     <a className="nav-link" href="/catalog">
-                                        {lang === 'uz' ? "Katalog" : "Каталог"}
+                                        {lang === 'uz' ? 'Katalog' : 'Каталог'}
                                     </a>
                                 </li>
-                                <li
-                                    className="nav-item wow fadeInRight"
-                                    data-wow-delay="0.6s"
-                                >
+                                <li className="nav-item wow fadeInRight" data-wow-delay="0.6s">
                                     <a className="nav-link" href="/services">
-                                        {lang === 'uz' ? "Xizmatlar" : "Услуги"}
+                                        {lang === 'uz' ? 'Xizmatlar' : 'Услуги'}
                                     </a>
                                 </li>
-                                <li
-                                    className="nav-item wow fadeInRight"
-                                    data-wow-delay="0.8s"
-                                >
+                                <li className="nav-item wow fadeInRight" data-wow-delay="0.8s">
                                     <a className="nav-link" href="/video-type">
-                                        {lang === 'uz' ? "Loyihalar" : "Проекты"}
+                                        {lang === 'uz' ? 'Loyihalar' : 'Проекты'}
                                     </a>
                                 </li>
+
+                                {/* Кнопка запуска игры */}
+                                {canPlay && (
+                                    <li className="nav-item wow fadeInRight" data-wow-delay="1s">
+                                        <div style={{ padding: 20 }}>
+                                            <button onClick={() => setModalOpen(true)} className="nav-item wow fadeInRight">
+                                                {lang === 'uz' ? "O'yinni ochish" : 'Открыть игру со скидкой'}
+                                            </button>
+                                        </div>
+                                    </li>
+                                )}
                             </ul>
                         </div>
 
-                        {/* Navbar с анимацией */}
-                        <li
-                            className="nav-iteme wow fadeInLeft"
-                            data-wow-delay="1s"
-                        >
+                        {/* Navbar */}
+                        <li className="nav-iteme wow fadeInLeft" data-wow-delay="1s">
                             <a className="nav-link">
                                 <Navbar />
                             </a>
                         </li>
 
-                        {/* Burger с анимацией */}
-                        <div
-                            className="navbar-toggle wow fadeInLeft"
-                            data-wow-delay="1.2s"
-                        >
+                        {/* Burger */}
+                        <div className="navbar-toggle wow fadeInLeft" data-wow-delay="1.2s">
                             <Burger />
                         </div>
                     </div>
                 </nav>
 
                 <div className="responsive-menu"></div>
+
+                {/* Модалка с игрой */}
+                {modalOpen && <Game onClose={handleGameClose} />}
             </div>
         </header>
     );

@@ -44,7 +44,6 @@ import Videoss from './components/video_ss/Videoss'
 import Comment from './components/comment/Comment';
 import ChangePassword from './components/change-password/ChangePassword';
 import ProductSort from './components/productsort/ProductSort';
-import UserProfile from './components/pages/UserProfile'
 
 function App() {
   return (
@@ -60,10 +59,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/allcategory" element={<AllCategory />} />
           <Route path="/category/:slug" element={<Nav />} />
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          {/* <Route path="/register" element={<Register />} />
+          <Route path="/login" element={<Login />} /> */}
           <Route path="/video-type" element={<Videoss />} />
-          <Route path="/user-profile" element={<UserProfile />} />
           <Route path="/comment" element={<Comment />} />
           <Route path="/productsort" element={<ProductSort />} />
           <Route path="/change-password" element={<ChangePassword />} />
