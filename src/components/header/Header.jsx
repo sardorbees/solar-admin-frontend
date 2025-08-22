@@ -89,9 +89,9 @@ function Header() {
 
                                 {/* Кнопка запуска игры */}
                                 {canPlay && (
-                                    <li className="nav-item wow fadeInRight" data-wow-delay="1s">
-                                        <div style={{ padding: 20 }}>
-                                            <button onClick={() => setModalOpen(true)} className="nav-item wow fadeInRight">
+                                    <li className="nav-item fade-in">
+                                        <div className="play-button-container">
+                                            <button onClick={() => setModalOpen(true)} className="play-button">
                                                 {lang === 'uz' ? "O'yinni ochish" : 'Открыть игру со скидкой'}
                                             </button>
                                         </div>
