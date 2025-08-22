@@ -41,7 +41,7 @@ function Footer() {
                                             {lang === 'uz' ? "Bizning joylashuvimiz" : "Наше местоположение"}
                                         </h3>
                                         <p>
-                                            {lang === 'uz' ? "Art Bulok L1-21" : "Арк Булок L1-21"}
+                                            {lang === 'uz' ? "Ark Buloq L1-21" : "Арк Булок L1-21"}
                                         </p>
                                     </div>
                                 </div>

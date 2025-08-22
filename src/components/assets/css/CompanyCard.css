@@ -763,6 +763,15 @@
 }
 
 @media only screen and (min-width: 550px) and (max-width: 600px) {
+    .nav-iteme {
+        text-decoration: none;
+        list-style-type: none;
+        font-size: 15px;
+        font-weight: 400;
+        padding: 12px 10px !important;
+        color: var(--primary-color);
+    }
+
     .header-button {
         width: 27%;
     }
@@ -857,6 +866,10 @@
         font-size: 18px !important;
     }
 
+    .logoa {
+        width: 146px;
+    }
+
     img {
         max-width: 100%;
         text-align: center;
@@ -891,6 +904,10 @@
 }
 
 @media only screen and (min-width: 450px) and (max-width: 500px) {
+    .nav-link {
+        margin-left: -5px;
+    }
+
     .header-button {
         width: 35%;
     }
@@ -961,6 +978,10 @@
 @media only screen and (min-width: 400px) and (max-width: 450px) {
     .header-button {
         width: 35%;
+    }
+
+    .nav-link {
+        font-size: 12px;
     }
 
     .diuhdg {

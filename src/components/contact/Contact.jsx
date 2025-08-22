@@ -56,9 +56,6 @@ function Contact() {
                                 <h3 class="wow fadeInUp">
                                     {lang === 'uz' ? "Bog'lanish uchun ma'lumot" : "Контактная информация"}
                                 </h3>
-                                <h2 class="text-anime">
-                                    {lang === 'uz' ? "Men barcha savollaringizga javob berishdan xursand bo'laman." : "С радостью отвечу на все ваши вопросы"}
-                                </h2>
                             </div>
                         </div>
                     </div>
@@ -76,7 +73,7 @@ function Contact() {
                                         {lang === 'uz' ? "Bizning manzillarimiz" : "Наши адреса"}
                                         :</h3>
                                     <p>
-                                        {lang === 'uz' ? "Ark Bulok L1-21" : "Арк Булок L1-21"}
+                                        {lang === 'uz' ? "Ark Buloq L1-21" : "Арк Булок L1-21"}
                                     </p>
                                 </div>
 
