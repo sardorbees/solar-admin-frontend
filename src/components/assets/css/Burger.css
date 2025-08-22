@@ -115,7 +115,281 @@
     }
 
     .fffa {
-        margin-left: -120px!important;
+        margin-left: 15px !important;
+    }
+}
+
+@media only screen and (min-width: 850px) and (max-width: 900px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 301px !important;
+    }
+}
+
+@media only screen and (min-width: 800px) and (max-width: 850px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 265px !important;
+    }
+}
+
+@media only screen and (min-width: 750px) and (max-width: 800px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 208px !important;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 700px) and (max-width: 750px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 168px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 650px) and (max-width: 700px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 120px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 600px) and (max-width: 650px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 70px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 550px) and (max-width: 600px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 30px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 500px) and (max-width: 550px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 30px !important;
+    }
+
+    .theme-togglee {
+        width: 13%;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 450px) and (max-width: 500px) {
+    .theme-togglee {
+        width: 15%;
+    }
+
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 30px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 19px;
+    }
+}
+
+@media only screen and (min-width: 400px) and (max-width: 450px) {
+    .theme-togglee {
+        width: 18%;
+    }
+
+    .types {
+        position: relative;
+        top: 214px !important;
+    }
+
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: 10px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 24px;
+    }
+}
+
+@media only screen and (min-width: 350px) and (max-width: 400px) {
+    .types {
+        position: relative;
+        top: 210px !important;
+        left: 59px;
+    }
+
+    .theme-togglee {
+        width: 20%;
+        height: 52px;
+    }
+
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .fffa {
+        margin-left: -5px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 24px;
+    }
+
+    .nav-link {
+        font-size: 15px !important;
+    }
+}
+
+@media only screen and (min-width: 342px) and (max-width: 350px) {
+    .nav-link {
+        font-size: 22px;
+    }
+
+    .tus {
+        position: relative;
+        top: 235px !important;
+    }
+
+    .uhgdfuig {
+        position: relative;
+        top: 235px !important;
+    }
+
+    .types {
+        position: relative;
+        top: 210px !important;
+        left: 59px;
+    }
+
+    .theme-togglee {
+        width: 20%;
+        top: 38px !important;
+        height: 52px;
+    }
+
+    .fffa {
+        margin-left: 0px !important;
+    }
+
+    .header-button {
+        width: 20%;
+    }
+
+    .fiu {
+        margin-top: -65px;
+        position: relative;
+        top: 26px;
+    }
+
+    .nav-link {
+        font-size: 15px !important;
     }
 }
 

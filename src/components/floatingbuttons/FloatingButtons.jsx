@@ -91,6 +91,9 @@ const styles = {
         flexDirection: "row",
         gap: "10px",
         marginTop: "15px",
+        marginBottom: '-25px',
+        textAlign: 'center',
+        marginLeft: '-31px'
     },
     langButton: {
         backgroundColor: "#fff",
@@ -103,6 +106,8 @@ const styles = {
         justifyContent: "center",
         cursor: "pointer",
         transition: "border 0.3s",
+        position: 'relative',
+        left: '15px',
     },
 };
 

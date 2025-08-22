@@ -536,7 +536,7 @@ function EraSolar() {
                                             <img
                                                 src={selectedProduct.image}
                                                 alt={selectedProduct.name_ru}
-                                                style={{ width: "100%", borderRadius: 16 }}
+                                                className='img-baks'
                                             />
                                         </div>
 
@@ -564,7 +564,6 @@ function EraSolar() {
                                                     color: "#999",
                                                     cursor: "pointer",
                                                     fontSize: 18,
-                                                    display: "block",
                                                 }}
                                             >
                                                 ✕ {lang === "uz" ? "Yopish" : "Закрыть"}

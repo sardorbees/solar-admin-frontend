@@ -455,7 +455,7 @@ function Gybrid() {
                         <div className="product-grid">
                             {producted.length === 0 && <p>Товары не найдены.</p>}
                             {producted.map((p) => (
-                                <div key={p.id} className="product-card"  onClick={() => setSelectedProduct(p)} style={{ cursor: "pointer" }} >
+                                <div key={p.id} className="product-card" onClick={() => setSelectedProduct(p)} style={{ cursor: "pointer" }} >
                                     <div className="product-image">
                                         <img src={p.image} alt={p.name_ru} className="img-fluid w-100" />
                                     </div>
@@ -531,7 +531,7 @@ function Gybrid() {
                                             <img
                                                 src={selectedProduct.image}
                                                 alt={selectedProduct.name_ru}
-                                                style={{ width: "100%", borderRadius: 16 }}
+                                                className='img-baks'
                                             />
                                         </div>
 
@@ -559,7 +559,6 @@ function Gybrid() {
                                                     color: "#999",
                                                     cursor: "pointer",
                                                     fontSize: 18,
-                                                    display: "block",
                                                 }}
                                             >
                                                 ✕ {lang === "uz" ? "Yopish" : "Закрыть"}

@@ -536,7 +536,7 @@ function Andeli() {
                                             <img
                                                 src={selectedProduct.image}
                                                 alt={selectedProduct.name_ru}
-                                                style={{ width: "100%", borderRadius: 16 }}
+                                                className='img-baks'
                                             />
                                         </div>
 
@@ -564,7 +564,6 @@ function Andeli() {
                                                     color: "#999",
                                                     cursor: "pointer",
                                                     fontSize: 18,
-                                                    display: "block",
                                                 }}
                                             >
                                                 ✕ {lang === "uz" ? "Yopish" : "Закрыть"}
@@ -660,18 +659,7 @@ function Andeli() {
                                                 {lang === "uz" ? "Buyurtma berish uchun" : "Под Заказ"}
                                             </button>
 
-                                            <button
-                                                onClick={closeModal}
-                                                style={{
-                                                    marginTop: 20,
-                                                    backgroundColor: "transparent",
-                                                    border: "none",
-                                                    color: "#999",
-                                                    cursor: "pointer",
-                                                    fontSize: 18,
-                                                    display: "block",
-                                                }}
-                                            >
+                                            <button onClick={closeModal} >
                                                 ✕ {lang === "uz" ? "Yopish" : "Закрыть"}
                                             </button>
                                         </div>

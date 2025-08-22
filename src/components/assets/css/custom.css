@@ -7050,3 +7050,9 @@ footer.main-footer {
         background-position: 200% 0;
     }
 }
+
+.img-baks {
+    width: 72%;
+    position: relative;
+    top: 28px;
+}

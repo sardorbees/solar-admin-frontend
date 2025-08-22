@@ -6,6 +6,7 @@ import logo from "../assets/img/logo/12.png";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa6";
 import "../assets/css/navbar.css";
 import { FaUser } from "react-icons/fa";
+import icon from '../assets/img/logo1/add.gif'
 
 export default function AuthModal() {
     const [user, setUser] = useState(null);
@@ -114,7 +115,7 @@ export default function AuthModal() {
                             </Link>
                             |{" "} */}
                             <div className="fiu">
-                                <FaUser className="gfdg" />
+                                <img src={icon} alt="" className="gfdg" width={30}/>
                                 <Link
                                     to="#"
                                     className="nav-link animated-link"
@@ -149,21 +150,10 @@ export default function AuthModal() {
                         </h2>
 
                         <form onSubmit={showLogin ? handleLogin : handleRegister}>
-                            <label style={{
-                                position: 'absolute',
-                                top: '228px',
-                                left: '68px',
-                                backgroundColor: 'white',
-                                padding: '0 5px',
-                                fontSize: '14px',
-                                color: '#888'
-                            }}>
-                                {lang === "uz" ? "Foydalanuvchi nomi" : "Имя пользователя"}
-                            </label>
                             <input
                                 name="username"
                                 type="text"
-                                placeholder={lang === "uz" ? "Ismi" : "Имя"}
+                                placeholder={lang === "uz" ? "Foydalanuvchi nomi" : "Имя пользователя"}
                                 value={form.username}
                                 onChange={handleChange}
                                 required

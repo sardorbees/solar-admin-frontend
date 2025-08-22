@@ -523,8 +523,9 @@ function Akkumlyatory() {
                                         style={{
                                             backgroundColor: "#fff",
                                             borderRadius: 16,
-                                            maxWidth: 700,
-                                            width: "90%",
+                                            maxWidth: 400,
+                                            maxHeight: 900,
+                                            width: "86%",
                                             padding: 24,
                                             display: "flex",
                                             gap: 20,
@@ -536,7 +537,7 @@ function Akkumlyatory() {
                                             <img
                                                 src={selectedProduct.image}
                                                 alt={selectedProduct.name_ru}
-                                                style={{ width: "100%", borderRadius: 16 }}
+                                                className='img-baks'
                                             />
                                         </div>
 
@@ -564,7 +565,6 @@ function Akkumlyatory() {
                                                     color: "#999",
                                                     cursor: "pointer",
                                                     fontSize: 18,
-                                                    display: "block",
                                                 }}
                                             >
                                                 ✕ {lang === "uz" ? "Yopish" : "Закрыть"}
