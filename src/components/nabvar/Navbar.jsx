@@ -134,7 +134,7 @@ export default function AuthModal() {
 
             {modalOpen && (
                 <div className="auth-modal">
-                    <div className="modal-content">
+                    <div className="modal-contents">
                         <button className="close-button" onClick={() => setModalOpen(false)}>
                             ×
                         </button>
@@ -152,7 +152,7 @@ export default function AuthModal() {
                         <form onSubmit={showLogin ? handleLogin : handleRegister}>
                             <input
                                 name="username"
-                                type="text"
+                                type="name"
                                 placeholder={lang === "uz" ? "Foydalanuvchi nomi" : "Имя пользователя"}
                                 value={form.username}
                                 onChange={handleChange}
@@ -162,7 +162,7 @@ export default function AuthModal() {
                             <div className="password-container">
                                 <label style={{
                                     position: 'absolute',
-                                    top: '-5px',
+                                    top: '-15px',
                                     left: '10px',
                                     backgroundColor: 'white',
                                     padding: '0 5px',
@@ -192,7 +192,7 @@ export default function AuthModal() {
                                 <div style={{ position: 'relative', marginBottom: '20px' }}>
                                     <label style={{
                                         position: 'absolute',
-                                        top: '-5px',
+                                         top: '-15px',
                                         left: '10px',
                                         backgroundColor: 'white',
                                         padding: '0 5px',
